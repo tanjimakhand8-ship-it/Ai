@@ -1,0 +1,6 @@
+{
+  "name": "Marco AI",
+  "description": "An intelligent and helpful personal AI assistant named Marco, fully persistent with offline chat history.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
