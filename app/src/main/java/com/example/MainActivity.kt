@@ -63,6 +63,15 @@ class MainActivity : ComponentActivity(), TextToSpeech.OnInitListener {
     if (isTtsInitialized && tts != null) {
       // Remove basic markdown signs for clear narration
       val cleanText = text.replace("**", "").replace("*", "")
+      
+      // Determine if there is Bengali text in the message to switch TTS language
+      val containsBengali = cleanText.any { it.code in 0x0980..0x09FF }
+      if (containsBengali) {
+          tts?.language = Locale("bn", "BD")
+      } else {
+          tts?.language = Locale.US
+      }
+      
       tts?.speak(cleanText, TextToSpeech.QUEUE_FLUSH, null, "MarcoSpeech")
     }
   }
